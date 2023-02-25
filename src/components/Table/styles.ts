@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 type SelectionContainer = {
   type: 'checkbox' | 'radio';
-  selected: boolean;
+  selected?: boolean;
 };
 
 const StyledTable = styled.div`
@@ -58,6 +58,13 @@ const TableBodyContainer = styled.div`
   }
 `;
 
+const TableHeaderEmptyCell = styled.div`
+  position: relative;
+  margin-right: 24px;
+  width: 32px;
+  height: 32px;
+`;
+
 const TableBodyContent = styled.div`
   display: flex;
   align-items: center;
@@ -95,6 +102,7 @@ const SelectionContainer = styled.label`
         ? css`
             background: #5c50bb;
             border-radius: 100%;
+            border: 1px solid #5c50bb;
 
             ::before {
               content: '';
@@ -115,6 +123,7 @@ const SelectionContainer = styled.label`
       ? css`
           background: #5c50bb;
           border-radius: 8px;
+          border: 1px solid #5c50bb;
 
           ::before {
             content: '';
@@ -150,6 +159,7 @@ export {
   TableHeaderContent,
   TableHeaderItem,
   TableHeaderItemText,
+  TableHeaderEmptyCell,
   TableBodyContainer,
   TableBodyContent,
   TableRow,

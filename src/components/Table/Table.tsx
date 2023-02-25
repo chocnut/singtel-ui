@@ -14,7 +14,7 @@ export interface TableProps {
 const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   return (
     <StyledTable>
-      <TableHeader columns={columns} />
+      <TableHeader columns={columns} rowSelection={rowSelection} />
       <TableBody
         columns={columns}
         dataSource={dataSource}
