@@ -20,10 +20,9 @@ const TableBody: FC<TableBodyProps> = ({
   dataSource,
   rowSelection,
 }) => {
-  // const [selectedRows, setSelectedRows] = useState([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
-  const handleCheckBoxClick = (value: string, object: any) => {
+  const handleCheckBoxClick = (value: string) => {
     let newCheckboxArr = [...selectedRowKeys];
     if (newCheckboxArr.indexOf(value) >= 0) {
       newCheckboxArr.splice(newCheckboxArr.indexOf(value), 1);
@@ -33,17 +32,17 @@ const TableBody: FC<TableBodyProps> = ({
     setSelectedRowKeys(newCheckboxArr);
   };
 
-  const handleRadioClick = (value: string, object: any) => {
+  const handleRadioClick = (value: string) => {
     setSelectedRowKeys([value]);
-    // setSelectedRows(object);
   };
 
   const handleClick = useCallback(
-    (e: any, object: any) => {
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
+
       rowSelection?.type === 'checkbox'
-        ? handleCheckBoxClick(value, object)
-        : handleRadioClick(value, object);
+        ? handleCheckBoxClick(value)
+        : handleRadioClick(value);
     },
     [selectedRowKeys]
   );
@@ -63,7 +62,7 @@ const TableBody: FC<TableBodyProps> = ({
                   selected={selectedRowKeys.includes(index.toString())}
                 >
                   <InputRadio
-                    onClick={(e: any) => handleClick(e, columnItem)}
+                    onClick={handleClick}
                     type={rowSelection.type}
                     name={rowSelection.type}
                     value={index}
