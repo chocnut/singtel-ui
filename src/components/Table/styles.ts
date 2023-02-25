@@ -71,24 +71,57 @@ const TableRow = styled.div`
   text-overflow: ellipsis;
 `;
 
+type SelectionContainer = {
+  type: 'checkbox' | 'radio';
+  selected: boolean;
+};
 const SelectionContainer = styled.label`
-  ${({ type }: { type: 'checkbox' | 'radio' }) =>
+  cursor: pointer;
+  position: relative;
+  margin-right: 24px;
+  width: 32px;
+  height: 32px;
+
+  ${({ type, selected }: SelectionContainer) =>
     type === 'radio'
+      ? selected
+        ? css`
+            background: #5c50bb;
+            border-radius: 100%;
+
+            ::before {
+              content: '';
+              position: absolute;
+              left: 10px;
+              width: 16px;
+              height: 16px;
+              background-color: #fff;
+              border-radius: 100%;
+              transform: translateX(-10%) translateY(50%);
+            }
+          `
+        : css`
+            border-radius: 100%;
+            border: 1px solid #a8a8a8;
+          `
+      : selected
       ? css`
-          cursor: pointer;
-          position: relative;
-          margin-right: 24px;
-          width: 32px;
-          height: 32px;
-          border-radius: 100%;
-          border: 1px solid #a8a8a8;
+          background: #5c50bb;
+          border-radius: 8px;
+
+          ::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            width: 6px;
+            height: 14px;
+            border-color: #fff;
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            transform: translateX(40%) translateY(35%) rotate(45deg);
+          }
         `
       : css`
-          cursor: pointer;
-          position: relative;
-          margin-right: 24px;
-          width: 32px;
-          height: 32px;
           border: 1px solid #a8a8a8;
           border-radius: 8px;
         `}
