@@ -92,7 +92,7 @@ const TableBody: FC<TableBodyProps> = ({
                   />
                 </SelectionContainer>
               )}
-              {isMobile && columns.length > 3
+              {isMobile
                 ? renderMobileRow(columnItem)
                 : columns.map((item, index) => {
                     return (

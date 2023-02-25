@@ -114,7 +114,7 @@ const SelectionContainer = styled.label`
   height: 32px;
 
   @media screen and (max-width: 768px) {
-    top: -42px;
+    top: -35px;
   }
 
   ${({ type, selected }: SelectionContainer) =>

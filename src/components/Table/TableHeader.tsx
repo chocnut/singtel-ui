@@ -52,7 +52,7 @@ const TableHeader: FC<TableHeaderProps> = ({
     <TableHeaderContainer>
       <TableHeaderContent>
         {rowSelection && <TableHeaderEmptyCell />}
-        {isMobile && columns.length > 3 ? (
+        {isMobile ? (
           <TableHeaderItem>
             <TableHeaderItemText />
           </TableHeaderItem>
