@@ -25,6 +25,15 @@ const columns = [
     title: 'Name',
     key: 'name',
     dataIndex: 'name',
+    sorter: (a, b, order) => {
+      if (order) {
+        if (a.name.split(' ')[1] > b.name.split(' ')[1]) return 1;
+        else return -1;
+      } else {
+        if (a.name.split(' ')[1] > b.name.split(' ')[1]) return -1;
+        else return 1;
+      }
+    },
   },
   {
     title: 'Mobile',
@@ -40,6 +49,12 @@ const columns = [
     title: 'Penalty',
     key: 'penalty',
     dataIndex: 'penalty',
+    sorter: (a, b, order) => {
+      const priceA = Number(a.penalty.replace(/[^0-9-]+/g, ''));
+      const priceB = Number(b.penalty.replace(/[^0-9-]+/g, ''));
+
+      return order ? priceA - priceB : priceB - priceA;
+    },
   },
 ];
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { StyledTable } from './styles';
 import TableBody from './TableBody';
 import TableHeader from './TableHeader';
@@ -14,12 +14,26 @@ export interface TableProps {
 }
 
 const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
+  const [data, setData] = useState();
+  const [order, setOrder] = useState(false);
+
+  const onHandleSort = (e, sorter) => {
+    e.preventDefault();
+    const sortedDataSource = dataSource?.sort((a, b) => sorter(a, b, order));
+    setData(sortedDataSource);
+    setOrder(!order);
+  };
+
   return (
     <StyledTable>
-      <TableHeader columns={columns} rowSelection={rowSelection} />
+      <TableHeader
+        columns={columns}
+        rowSelection={rowSelection}
+        onHandleSort={onHandleSort}
+      />
       <TableBody
         columns={columns}
-        dataSource={dataSource}
+        dataSource={data || dataSource}
         rowSelection={rowSelection}
       />
     </StyledTable>
