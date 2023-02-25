@@ -40,10 +40,44 @@ const TableHeaderItemText = styled.div`
   text-overflow: ellipsis;
 `;
 
+const TableBodyContainer = styled.div`
+  display: flex;
+  align-items: center;
+  color: #000;
+  height: 84px;
+`;
+
+const TableBodyContent = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: inherit;
+  color: #000;
+  border-bottom: 1px solid #e1e1e1;
+  margin: 0 24px;
+`;
+
+const TableRow = styled.div`
+  flex: 1;
+  text-align: initial;
+  font-weight: 350;
+  font-size: 20px;
+  line-height: 35px;
+  letter-spacing: 0.001em;
+  font-style: normal;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 export {
   StyledTable,
   TableHeaderContainer,
   TableHeaderContent,
   TableHeaderItem,
   TableHeaderItemText,
+  TableBodyContainer,
+  TableBodyContent,
+  TableRow,
 };

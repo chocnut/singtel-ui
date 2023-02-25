@@ -7,23 +7,21 @@ import {
 } from './styles';
 
 export interface TableHeaderProps {
-  columns?: [];
+  columns: [];
 }
 
-const TableHeader: FC<TableHeaderProps> = ({ columns }) => {
-  return (
-    <TableHeaderContainer>
-      <TableHeaderContent>
-        {columns?.map((item: any, index: number) => {
-          return (
-            <TableHeaderItem key={index}>
-              <TableHeaderItemText>{item.title}</TableHeaderItemText>
-            </TableHeaderItem>
-          );
-        })}
-      </TableHeaderContent>
-    </TableHeaderContainer>
-  );
-};
+const TableHeader: FC<TableHeaderProps> = ({ columns }) => (
+  <TableHeaderContainer>
+    <TableHeaderContent>
+      {columns.map((item: any, index: number) => {
+        return (
+          <TableHeaderItem key={index}>
+            <TableHeaderItemText>{item.title}</TableHeaderItemText>
+          </TableHeaderItem>
+        );
+      })}
+    </TableHeaderContent>
+  </TableHeaderContainer>
+);
 
 export default TableHeader;
