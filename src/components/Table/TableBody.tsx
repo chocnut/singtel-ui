@@ -49,11 +49,15 @@ const TableBody: FC<TableBodyProps> = ({
     [selectedRowKeys]
   );
 
-  const renderMobileRow = () => {
+  const renderMobileRow = columnItem => {
     return (
       <TableRow mobile>
         {columns.map((item, index) => {
-          return <span>{item.title}:</span>;
+          return (
+            <span key={index}>
+              {item.title}: {columnItem[item.key]}
+            </span>
+          );
         })}
       </TableRow>
     );
@@ -82,7 +86,7 @@ const TableBody: FC<TableBodyProps> = ({
                 </SelectionContainer>
               )}
               {isMobile
-                ? renderMobileRow()
+                ? renderMobileRow(columnItem)
                 : columns.map((item, index) => {
                     return (
                       <TableRow key={item?.key + index}>
