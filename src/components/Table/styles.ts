@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components';
 
+type SelectionContainer = {
+  type: 'checkbox' | 'radio';
+  selected: boolean;
+};
+
 const StyledTable = styled.div`
   width: 100%;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
@@ -45,6 +50,8 @@ const TableBodyContainer = styled.div`
   align-items: center;
   color: #000;
   height: 84px;
+  background: ${({ selected }: { selected: boolean }) =>
+    selected ? '#efedfd' : ''};
 `;
 
 const TableBodyContent = styled.div`
@@ -71,10 +78,6 @@ const TableRow = styled.div`
   text-overflow: ellipsis;
 `;
 
-type SelectionContainer = {
-  type: 'checkbox' | 'radio';
-  selected: boolean;
-};
 const SelectionContainer = styled.label`
   cursor: pointer;
   position: relative;

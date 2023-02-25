@@ -52,7 +52,10 @@ const TableBody: FC<TableBodyProps> = ({
     <div>
       {dataSource?.map((columnItem, index) => {
         return (
-          <TableBodyContainer key={index}>
+          <TableBodyContainer
+            key={index}
+            selected={selectedRowKeys.includes(index.toString())}
+          >
             <TableBodyContent>
               {rowSelection && (
                 <SelectionContainer
