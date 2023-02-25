@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import useIsMobile from './hooks/useIsMobile';
 import SortArrowIcon from './icons/SortArrowIcon';
 import SortDefaultIcon from './icons/SortDefaultIcon';
 import {
@@ -31,6 +32,8 @@ const TableHeader: FC<TableHeaderProps> = ({
   order,
   sortTitle,
 }) => {
+  const isMobile = useIsMobile();
+
   const renderSortButton = item => {
     return (
       <SortingButton onClick={e => onHandleSort?.(e, item)}>
@@ -49,16 +52,22 @@ const TableHeader: FC<TableHeaderProps> = ({
     <TableHeaderContainer>
       <TableHeaderContent>
         {rowSelection && <TableHeaderEmptyCell />}
-        {columns.map((item: any, index: number) => {
-          return (
-            <TableHeaderItem key={index}>
-              <TableHeaderItemText key={index}>
-                {item.title}
-              </TableHeaderItemText>
-              {item.sorter ? renderSortButton(item) : null}
-            </TableHeaderItem>
-          );
-        })}
+        {isMobile && columns.length > 3 ? (
+          <TableHeaderItem>
+            <TableHeaderItemText />
+          </TableHeaderItem>
+        ) : (
+          columns.map((item: any, index: number) => {
+            return (
+              <TableHeaderItem key={index}>
+                <TableHeaderItemText key={index}>
+                  {item.title}
+                </TableHeaderItemText>
+                {item.sorter ? renderSortButton(item) : null}
+              </TableHeaderItem>
+            );
+          })
+        )}
       </TableHeaderContent>
     </TableHeaderContainer>
   );
