@@ -38,7 +38,7 @@ const TableHeaderItem = styled.div`
 
 const TableHeaderItemText = styled.div`
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
   white-space: nowrap;
   overflow: hidden;
@@ -153,6 +153,21 @@ const InputRadio = styled.input`
   left: 0;
 `;
 
+const SortingButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52.34px;
+  height: 56px;
+  margin-left: 5px;
+  border-radius: 100%;
+  cursor: pointer;
+
+  :hover {
+    background: #dedafa;
+  }
+`;
+
 export {
   StyledTable,
   TableHeaderContainer,
@@ -165,4 +180,5 @@ export {
   TableRow,
   InputRadio,
   SelectionContainer,
+  SortingButton,
 };

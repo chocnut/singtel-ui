@@ -8,6 +8,8 @@ export interface TableProps {
   dataSource?: [];
   rowSelection?: {
     type: 'checkbox' | 'radio';
+    sortDirections?: 'descend' | 'ascend';
+    sorter: (a, b) => void;
   };
 }
 
