@@ -51,15 +51,22 @@ const TableBody: FC<TableBodyProps> = ({
 
   const renderMobileRow = columnItem => {
     return (
-      <TableRow mobile>
-        {columns.map((item, index) => {
-          return (
-            <span key={index}>
-              {item.title}: {columnItem[item.key]}
-            </span>
-          );
-        })}
-      </TableRow>
+      <>
+        <TableRow mobile>
+          {columns.map((item, index) => {
+            return (
+              <span key={index} className="title">
+                {item.title}:{' '}
+              </span>
+            );
+          })}
+        </TableRow>
+        <TableRow mobile>
+          {columns.map(item => {
+            return <span className="text">{columnItem[item.key]}</span>;
+          })}
+        </TableRow>
+      </>
     );
   };
 

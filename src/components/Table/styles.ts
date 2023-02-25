@@ -98,6 +98,11 @@ const TableRow = styled.div`
       display: flex;
       flex-direction: column;
       padding: 10px 0 10px;
+
+      .title {
+        font-style: normal;
+        font-weight: 700;
+      }
     `}
 `;
 

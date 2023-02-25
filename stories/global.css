@@ -1,6 +1,15 @@
 @font-face {
   font-family: 'Avenir LT Std';
   src: url('./assets/fonts/AvenirLTStd.otf');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('./assets/fonts/AvenirLTStdHeavy.otf');
+  font-style: normal;
+  font-weight: 700;
 }
 
 html,
