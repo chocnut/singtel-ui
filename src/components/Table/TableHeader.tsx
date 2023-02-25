@@ -12,7 +12,10 @@ import SortingDefaultIcon from './icons/SortingDefaultIcon';
 export interface TableHeaderProps {
   columns: [];
   dataSource?: [];
-  onHandleSort?: (e: any, sorter: any) => void;
+  onHandleSort?: (
+    e: React.MouseEvent<HTMLButtonElement>,
+    sorter: () => void
+  ) => void;
   rowSelection: {
     type: 'checkbox' | 'radio';
   };
