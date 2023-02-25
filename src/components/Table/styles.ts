@@ -52,6 +52,10 @@ const TableBodyContainer = styled.div`
   height: 84px;
   background: ${({ selected }: { selected: boolean }) =>
     selected ? '#efedfd' : ''};
+
+  :hover {
+    background: #efedfd;
+  }
 `;
 
 const TableBodyContent = styled.div`
