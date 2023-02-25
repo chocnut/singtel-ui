@@ -6,13 +6,20 @@ import TableHeader from './TableHeader';
 export interface TableProps {
   columns?: [];
   dataSource?: [];
+  rowSelection?: {
+    type: 'checkbox' | 'radio';
+  };
 }
 
-const Table: FC<TableProps> = ({ columns, dataSource }) => {
+const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   return (
     <StyledTable>
       <TableHeader columns={columns} />
-      <TableBody columns={columns} dataSource={dataSource} />
+      <TableBody
+        columns={columns}
+        dataSource={dataSource}
+        rowSelection={rowSelection}
+      />
     </StyledTable>
   );
 };

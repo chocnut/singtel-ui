@@ -80,4 +80,7 @@ export const Default = Template.bind({});
 Default.args = {
   columns,
   dataSource,
+  rowSelection: {
+    type: 'checkbox',
+  },
 };

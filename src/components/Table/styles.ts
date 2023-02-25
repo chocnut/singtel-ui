@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledTable = styled.div`
   width: 100%;
@@ -71,6 +71,39 @@ const TableRow = styled.div`
   text-overflow: ellipsis;
 `;
 
+const SelectionContainer = styled.label`
+  ${({ type }: { type: 'checkbox' | 'radio' }) =>
+    type === 'radio'
+      ? css`
+          cursor: pointer;
+          position: relative;
+          margin-right: 24px;
+          width: 32px;
+          height: 32px;
+          border-radius: 100%;
+          border: 1px solid #a8a8a8;
+        `
+      : css`
+          cursor: pointer;
+          position: relative;
+          margin-right: 24px;
+          width: 32px;
+          height: 32px;
+          border: 1px solid #a8a8a8;
+          border-radius: 8px;
+        `}
+`;
+
+const InputRadio = styled.input`
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
 export {
   StyledTable,
   TableHeaderContainer,
@@ -80,4 +113,6 @@ export {
   TableBodyContainer,
   TableBodyContent,
   TableRow,
+  InputRadio,
+  SelectionContainer,
 };
