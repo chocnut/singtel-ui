@@ -16,12 +16,16 @@ export interface TableProps {
 const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState(false);
+  const [sortTitle, setSortTitle] = useState();
 
-  const onHandleSort = (e, sorter) => {
+  const onHandleSort = (e, item) => {
     e.preventDefault();
-    const sortedDataSource = dataSource?.sort((a, b) => sorter(a, b, order));
+    const sortedDataSource = dataSource?.sort((a, b) =>
+      item.sorter(a, b, order)
+    );
     setData(sortedDataSource);
     setOrder(!order);
+    setSortTitle(item.title);
   };
 
   return (
@@ -30,6 +34,8 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
         columns={columns}
         rowSelection={rowSelection}
         onHandleSort={onHandleSort}
+        order={order}
+        sortTitle={sortTitle}
       />
       <TableBody
         columns={columns}

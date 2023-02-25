@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SortingArrowIcon = props => (
+const SortArrowIcon = props => (
   <svg
     width={10}
     height={15}
@@ -17,4 +17,4 @@ const SortingArrowIcon = props => (
   </svg>
 );
 
-export default SortingArrowIcon;
+export default SortArrowIcon;

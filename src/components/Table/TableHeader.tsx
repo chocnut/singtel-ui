@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import SortArrowIcon from './icons/SortArrowIcon';
+import SortDefaultIcon from './icons/SortDefaultIcon';
 import {
   SortingButton,
   TableHeaderContainer,
@@ -7,7 +9,6 @@ import {
   TableHeaderItem,
   TableHeaderItemText,
 } from './styles';
-import SortingDefaultIcon from './icons/SortingDefaultIcon';
 
 export interface TableHeaderProps {
   columns: [];
@@ -19,29 +20,43 @@ export interface TableHeaderProps {
   rowSelection: {
     type: 'checkbox' | 'radio';
   };
+  order: boolean;
+  sortTitle: string;
 }
 
 const TableHeader: FC<TableHeaderProps> = ({
   columns,
   rowSelection,
   onHandleSort,
+  order,
+  sortTitle,
 }) => {
+  const renderSortButton = item => {
+    return (
+      <SortingButton onClick={e => onHandleSort?.(e, item)}>
+        {sortTitle && sortTitle === item.title ? (
+          <SortArrowIcon
+            style={{ transform: order ? 'rotate(-180deg)' : 'none' }}
+          />
+        ) : (
+          <SortDefaultIcon />
+        )}
+      </SortingButton>
+    );
+  };
+
   return (
     <TableHeaderContainer>
       <TableHeaderContent>
         {rowSelection && <TableHeaderEmptyCell />}
         {columns.map((item: any, index: number) => {
           return (
-            <>
-              <TableHeaderItem key={index}>
-                <TableHeaderItemText>{item.title}</TableHeaderItemText>
-                {item.sorter ? (
-                  <SortingButton onClick={e => onHandleSort?.(e, item.sorter)}>
-                    <SortingDefaultIcon />
-                  </SortingButton>
-                ) : null}
-              </TableHeaderItem>
-            </>
+            <TableHeaderItem key={index}>
+              <TableHeaderItemText key={index}>
+                {item.title}
+              </TableHeaderItemText>
+              {item.sorter ? renderSortButton(item) : null}
+            </TableHeaderItem>
           );
         })}
       </TableHeaderContent>
