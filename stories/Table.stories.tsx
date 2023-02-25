@@ -45,6 +45,17 @@ const columns = [
     key: 'expiry',
     dataIndex: 'expiry',
   },
+  {
+    title: 'Penalty',
+    key: 'penalty',
+    dataIndex: 'penalty',
+    sorter: (a, b, order) => {
+      const priceA = Number(a.penalty.replace(/[^0-9-]+/g, ''));
+      const priceB = Number(b.penalty.replace(/[^0-9-]+/g, ''));
+
+      return order ? priceA - priceB : priceB - priceA;
+    },
+  },
 ];
 
 const dataSource = [
