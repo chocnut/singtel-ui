@@ -1,4 +1,5 @@
 import React, { FC, useState, useCallback } from 'react';
+import useIsMobile from './hooks/useIsMobile';
 import {
   InputRadio,
   SelectionContainer,
@@ -21,6 +22,7 @@ const TableBody: FC<TableBodyProps> = ({
   rowSelection,
 }) => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const isMobile = useIsMobile();
 
   const handleCheckBoxClick = (value: string) => {
     let newCheckboxArr = [...selectedRowKeys];
@@ -47,6 +49,16 @@ const TableBody: FC<TableBodyProps> = ({
     [selectedRowKeys]
   );
 
+  const renderMobileRow = () => {
+    return (
+      <TableRow mobile>
+        {columns.map((item, index) => {
+          return <span>{item.title}:</span>;
+        })}
+      </TableRow>
+    );
+  };
+
   return (
     <div>
       {dataSource?.map((columnItem, index) => {
@@ -69,13 +81,15 @@ const TableBody: FC<TableBodyProps> = ({
                   />
                 </SelectionContainer>
               )}
-              {columns.map((item, index) => {
-                return (
-                  <TableRow key={item?.key + index}>
-                    {columnItem[item?.key]}
-                  </TableRow>
-                );
-              })}
+              {isMobile
+                ? renderMobileRow()
+                : columns.map((item, index) => {
+                    return (
+                      <TableRow key={item?.key + index}>
+                        {columnItem[item?.key]}
+                      </TableRow>
+                    );
+                  })}
             </TableBodyContent>
           </TableBodyContainer>
         );

@@ -56,6 +56,10 @@ const TableBodyContainer = styled.div`
   :hover {
     background: #efedfd;
   }
+
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
 `;
 
 const TableHeaderEmptyCell = styled.div`
@@ -87,6 +91,13 @@ const TableRow = styled.div`
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  ${mobile =>
+    mobile &&
+    css`
+      display: flex;
+      flex-direction: column;
+    `}
 `;
 
 const SelectionContainer = styled.label`
@@ -95,6 +106,10 @@ const SelectionContainer = styled.label`
   margin-right: 24px;
   width: 32px;
   height: 32px;
+
+  @media screen and (max-width: 768px) {
+    top: -42px;
+  }
 
   ${({ type, selected }: SelectionContainer) =>
     type === 'radio'
