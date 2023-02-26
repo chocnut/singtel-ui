@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import Table from '../Table';
 
@@ -99,5 +99,81 @@ describe('Table', () => {
     ];
     rerender(<Table columns={newColumns} />);
     expect(container.querySelector('div')?.textContent).toEqual('Title');
+  });
+
+  it('supports sort button', () => {
+    const sortClick = jest.fn();
+
+    const columns = [
+      {
+        title: 'Name',
+        key: 'name',
+        dataIndex: 'name',
+        sorter: sortClick,
+      },
+    ];
+
+    const { getByTestId } = render(
+      <Table columns={columns} dataSource={dataSource} />
+    );
+    const sortBtn = getByTestId('sort-btn');
+    expect(sortBtn).toBeInTheDocument();
+
+    fireEvent.click(sortBtn);
+    expect(sortClick).toHaveBeenCalled();
+  });
+
+  it('supports checkbox and be able to select it', async () => {
+    const dataSource = [
+      {
+        id: 1,
+        name: 'Mavis Chen',
+        mobile: '8899 7654',
+        expiry: 'Dec 2022',
+        penalty: '$600',
+      },
+    ];
+
+    const { getByRole } = render(
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        rowSelection={{ type: 'checkbox' }}
+      />
+    );
+    const checkbox = getByRole('checkbox', {
+      hidden: true,
+    });
+    expect(checkbox).toBeInTheDocument();
+
+    fireEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
+  });
+
+  it('supports radio and be able to select it', async () => {
+    const dataSource = [
+      {
+        id: 1,
+        name: 'Mavis Chen',
+        mobile: '8899 7654',
+        expiry: 'Dec 2022',
+        penalty: '$600',
+      },
+    ];
+
+    const { getByRole } = render(
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        rowSelection={{ type: 'radio' }}
+      />
+    );
+    const radio = getByRole('radio', {
+      hidden: true,
+    });
+    expect(radio).toBeInTheDocument();
+
+    fireEvent.click(radio);
+    expect(radio).toBeChecked();
   });
 });

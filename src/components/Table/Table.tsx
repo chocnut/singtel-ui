@@ -34,6 +34,7 @@ const Table: FC<TableProps> = ({
   const showSelect = typeof rowSelection?.type === 'string';
 
   const onHandleSort = (item: Column) => {
+    console.log('sort');
     const sortedDataSource = dataSource?.sort(item?.sorter);
     setData(sortedDataSource);
     setOrder(!order);

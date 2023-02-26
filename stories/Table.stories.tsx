@@ -1,7 +1,8 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Table, TableProps } from '../src/components/Table';
+import { Table } from '../src/components/Table';
 import './global.css';
+import { TableProps } from '../src/components/Table/Table';
 
 const meta: Meta = {
   title: 'Components/Table',

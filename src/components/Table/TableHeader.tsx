@@ -15,9 +15,9 @@ import { Column } from './Table';
 export interface TableHeaderProps {
   columns: Array<Column>;
   dataSource?: object[];
-  onHandleSort: (item: Column) => void;
-  showSelect: boolean;
-  order: boolean;
+  onHandleSort?: (item: Column) => void;
+  showSelect?: boolean;
+  order?: boolean;
   sortTitle?: string;
 }
 
@@ -32,7 +32,10 @@ const TableHeader: FC<TableHeaderProps> = ({
 
   const renderSortButton = (item: Column) => {
     return (
-      <SortingButton onClick={() => onHandleSort(item)}>
+      <SortingButton
+        data-testid="sort-btn"
+        onClick={() => onHandleSort?.(item)}
+      >
         {sortTitle && sortTitle === item.title ? (
           <SortArrowIcon
             style={{ transform: order ? 'rotate(-180deg)' : 'none' }}
