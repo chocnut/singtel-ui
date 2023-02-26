@@ -2,11 +2,11 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 export interface ThemeProviderProps {
-  colors?: {
-    primary?: string;
-    light?: string;
+  colors: {
+    primary: string;
+    light: string;
   };
-  fontFamily?: string;
+  fontFamily: string;
 }
 
 export const mainTheme: ThemeProviderProps = {

@@ -18,7 +18,7 @@ const Table: FC<TableProps> = ({
   columns,
   dataSource,
   rowSelection,
-  theme,
+  theme = mainTheme,
 }) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState(false);
@@ -35,7 +35,7 @@ const Table: FC<TableProps> = ({
   };
 
   return (
-    <ThemeProvider theme={mainTheme}>
+    <ThemeProvider theme={theme}>
       <StyledTable>
         <TableHeader
           columns={columns}

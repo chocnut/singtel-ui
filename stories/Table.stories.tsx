@@ -94,6 +94,7 @@ const theme = {
     primary: '#5C50BB',
     light: '#EFEDFD',
   },
+  fontFamily: 'Avenir LT Std, sans-serif, Roboto',
 };
 
 const Template: Story<TableProps> = args => <Table {...args} />;

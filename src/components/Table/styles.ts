@@ -187,7 +187,7 @@ const SortingButton = styled.div`
   cursor: pointer;
 
   :hover {
-    background: #dedafa;
+    background: ${({ theme }) => theme.colors.light};
   }
 `;
 
