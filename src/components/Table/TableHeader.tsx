@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import useIsMobile from './hooks/useIsMobile';
+import useIsMobile from '../../hooks/useIsMobile';
 import SortArrowIcon from './icons/SortArrowIcon';
 import SortDefaultIcon from './icons/SortDefaultIcon';
 import {

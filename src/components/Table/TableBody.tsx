@@ -1,5 +1,5 @@
 import React, { FC, useState, useCallback } from 'react';
-import useIsMobile from './hooks/useIsMobile';
+import useIsMobile from '../../hooks/useIsMobile';
 import {
   InputRadio,
   SelectionContainer,
