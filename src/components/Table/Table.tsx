@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import ThemeProvider, { ThemeProviderProps } from '../../ThemeProvider';
 import { StyledTable } from './styles';
 import TableBody from './TableBody';
 import TableHeader from './TableHeader';
@@ -10,9 +11,15 @@ export interface TableProps {
     type: 'checkbox' | 'radio';
     sorter: (a, b) => void;
   };
+  theme?: ThemeProviderProps;
 }
 
-const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
+const Table: FC<TableProps> = ({
+  columns,
+  dataSource,
+  rowSelection,
+  theme,
+}) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState(false);
   const [sortTitle, setSortTitle] = useState();
@@ -28,20 +35,22 @@ const Table: FC<TableProps> = ({ columns, dataSource, rowSelection }) => {
   };
 
   return (
-    <StyledTable>
-      <TableHeader
-        columns={columns}
-        rowSelection={rowSelection}
-        onHandleSort={onHandleSort}
-        order={order}
-        sortTitle={sortTitle}
-      />
-      <TableBody
-        columns={columns}
-        dataSource={data || dataSource}
-        rowSelection={rowSelection}
-      />
-    </StyledTable>
+    <ThemeProvider theme={theme}>
+      <StyledTable>
+        <TableHeader
+          columns={columns}
+          rowSelection={rowSelection}
+          onHandleSort={onHandleSort}
+          order={order}
+          sortTitle={sortTitle}
+        />
+        <TableBody
+          columns={columns}
+          dataSource={data || dataSource}
+          rowSelection={rowSelection}
+        />
+      </StyledTable>
+    </ThemeProvider>
   );
 };
 

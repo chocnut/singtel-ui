@@ -50,11 +50,11 @@ const TableBodyContainer = styled.div`
   align-items: center;
   color: #000;
   height: 84px;
-  background: ${({ selected }: { selected: boolean }) =>
-    selected ? '#efedfd' : ''};
+  background: ${({ selected, theme }: { selected: boolean; theme: any }) =>
+    selected ? theme.colors.light : ''};
 
   :hover {
-    background: #efedfd;
+    background: ${props => props.theme.colors.light};
   }
 
   @media screen and (max-width: 768px) {
@@ -121,9 +121,9 @@ const SelectionContainer = styled.label`
     type === 'radio'
       ? selected
         ? css`
-            background: #5c50bb;
+            background: ${props => props.theme.colors.primary};
             border-radius: 100%;
-            border: 1px solid #5c50bb;
+            border: 1px solid ${props => props.theme.colors.primary};
 
             ::before {
               content: '';
@@ -142,9 +142,9 @@ const SelectionContainer = styled.label`
           `
       : selected
       ? css`
-          background: #5c50bb;
+          background: ${props => props.theme.colors.primary};
           border-radius: 8px;
-          border: 1px solid #5c50bb;
+          border: 1px solid ${props => props.theme.colors.primary};
 
           ::before {
             content: '';

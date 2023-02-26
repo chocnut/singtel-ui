@@ -89,6 +89,13 @@ const dataSource = [
   },
 ];
 
+const theme = {
+  colors: {
+    primary: '#5C50BB',
+    light: '#EFEDFD',
+  },
+};
+
 const Template: Story<TableProps> = args => <Table {...args} />;
 
 export const Default = Template.bind({});
@@ -99,4 +106,5 @@ Default.args = {
   rowSelection: {
     type: 'checkbox',
   },
+  theme,
 };
