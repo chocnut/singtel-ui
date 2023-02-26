@@ -10,10 +10,11 @@ import {
   TableHeaderItem,
   TableHeaderItemText,
 } from './styles';
+import { Column } from './Table';
 
 export interface TableHeaderProps {
-  columns: [];
-  dataSource?: [];
+  columns: Array<Column>;
+  dataSource?: object[];
   onHandleSort?: (
     e: React.MouseEvent<HTMLButtonElement>,
     sorter: () => void
@@ -22,7 +23,7 @@ export interface TableHeaderProps {
     type: 'checkbox' | 'radio';
   };
   order: boolean;
-  sortTitle: string;
+  sortTitle?: string;
 }
 
 const TableHeader: FC<TableHeaderProps> = ({
@@ -57,7 +58,7 @@ const TableHeader: FC<TableHeaderProps> = ({
             <TableHeaderItemText />
           </TableHeaderItem>
         ) : (
-          columns.map((item: any, index: number) => {
+          columns?.map((item: any, index: number) => {
             return (
               <TableHeaderItem key={index}>
                 <TableHeaderItemText key={index}>

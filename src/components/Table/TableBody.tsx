@@ -7,10 +7,11 @@ import {
   TableBodyContent,
   TableRow,
 } from './styles';
+import { Column } from './Table';
 
 export interface TableBodyProps {
-  columns: [];
-  dataSource: [];
+  columns: Array<Column>;
+  dataSource: Array<object>;
   rowSelection?: {
     type: 'checkbox' | 'radio';
   };
@@ -49,11 +50,11 @@ const TableBody: FC<TableBodyProps> = ({
     [selectedRowKeys]
   );
 
-  const renderMobileRow = columnItem => {
+  const renderMobileRow = (columnItem: Column) => {
     return (
       <>
         <TableRow mobile>
-          {columns.map((item, index) => {
+          {columns?.map((item, index) => {
             return (
               <span key={index} className="title">
                 {item.title}:{' '}
@@ -62,7 +63,7 @@ const TableBody: FC<TableBodyProps> = ({
           })}
         </TableRow>
         <TableRow mobile>
-          {columns.map(item => {
+          {columns?.map(item => {
             return <span className="text">{columnItem[item.key]}</span>;
           })}
         </TableRow>
@@ -94,7 +95,7 @@ const TableBody: FC<TableBodyProps> = ({
               )}
               {isMobile
                 ? renderMobileRow(columnItem)
-                : columns.map((item, index) => {
+                : columns?.map((item, index) => {
                     return (
                       <TableRow key={item?.key + index}>
                         {columnItem[item?.key]}

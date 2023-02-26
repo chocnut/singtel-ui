@@ -4,12 +4,23 @@ import { StyledTable } from './styles';
 import TableBody from './TableBody';
 import TableHeader from './TableHeader';
 
+export interface Column {
+  title: string;
+  key: string;
+  dataIndex: string;
+  sorter?: (
+    a: object | undefined,
+    b: object | undefined,
+    order: boolean
+  ) => number;
+}
+
 export interface TableProps {
-  columns?: [];
-  dataSource?: [];
+  columns?: Array<Column>;
+  dataSource?: object[];
   rowSelection?: {
     type: 'checkbox' | 'radio';
-    sorter: (a, b) => void;
+    sorter: (a: unknown, b: unknown) => void;
   };
   theme?: ThemeProviderProps;
 }
@@ -24,10 +35,13 @@ const Table: FC<TableProps> = ({
   const [order, setOrder] = useState(false);
   const [sortTitle, setSortTitle] = useState();
 
-  const onHandleSort = (e, item) => {
+  const onHandleSort = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    item: Column
+  ) => {
     e.preventDefault();
     const sortedDataSource = dataSource?.sort((a, b) =>
-      item.sorter(a, b, order)
+      item?.sorter(a, b, order)
     );
     setData(sortedDataSource);
     setOrder(!order);
