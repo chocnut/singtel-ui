@@ -6,28 +6,18 @@ export interface ThemeProviderProps {
     primary?: string;
     light?: string;
   };
-  fonts?: string[];
-  fontSizes: {
-    small?: string;
-    medium?: string;
-    large?: string;
-  };
+  fontFamily?: string;
 }
 
-const mainTheme: ThemeProviderProps = {
+export const mainTheme: ThemeProviderProps = {
   colors: {
     primary: '#5C50BB',
     light: '#EFEDFD',
   },
-  fonts: ['Avenir LT Std', 'sans-serif', 'Roboto'],
-  fontSizes: {
-    small: '14px',
-    medium: '20px',
-    large: '24px',
-  },
+  fontFamily: 'Avenir LT Std, sans-serif, Roboto',
 };
 
-const Theme = ({ children, theme = mainTheme }) => (
+const Theme = ({ children, theme }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 

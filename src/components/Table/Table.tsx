@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import ThemeProvider, { ThemeProviderProps } from '../../ThemeProvider';
+import ThemeProvider, { mainTheme, ThemeProviderProps } from './ThemeProvider';
 import { StyledTable } from './styles';
 import TableBody from './TableBody';
 import TableHeader from './TableHeader';
@@ -35,7 +35,7 @@ const Table: FC<TableProps> = ({
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={mainTheme}>
       <StyledTable>
         <TableHeader
           columns={columns}

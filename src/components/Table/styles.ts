@@ -37,6 +37,7 @@ const TableHeaderItem = styled.div`
 `;
 
 const TableHeaderItemText = styled.div`
+  font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 700;
   font-size: 24px;
   font-style: normal;
@@ -54,7 +55,7 @@ const TableBodyContainer = styled.div`
     selected ? theme.colors.light : ''};
 
   :hover {
-    background: ${props => props.theme.colors.light};
+    background: ${({ theme }) => theme.colors.light};
   }
 
   @media screen and (max-width: 768px) {
@@ -82,6 +83,7 @@ const TableBodyContent = styled.div`
 const TableRow = styled.div`
   flex: 1;
   text-align: initial;
+  font-family: ${({ theme }) => theme.fontFamily};
   font-weight: 350;
   font-size: 20px;
   line-height: 35px;
@@ -121,9 +123,9 @@ const SelectionContainer = styled.label`
     type === 'radio'
       ? selected
         ? css`
-            background: ${props => props.theme.colors.primary};
+            background: ${({ theme }) => theme.colors.primary};
             border-radius: 100%;
-            border: 1px solid ${props => props.theme.colors.primary};
+            border: 1px solid ${({ theme }) => theme.colors.primary};
 
             ::before {
               content: '';
@@ -142,9 +144,9 @@ const SelectionContainer = styled.label`
           `
       : selected
       ? css`
-          background: ${props => props.theme.colors.primary};
+          background: ${({ theme }) => theme.colors.primary};
           border-radius: 8px;
-          border: 1px solid ${props => props.theme.colors.primary};
+          border: 1px solid ${({ theme }) => theme.colors.primary};
 
           ::before {
             content: '';
