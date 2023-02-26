@@ -25,19 +25,22 @@ const TableBody: FC<TableBodyProps> = ({
   const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
   const isMobile = useIsMobile();
 
-  const handleCheckBoxClick = (value: string) => {
-    let newCheckboxArr = [...selectedRowKeys];
-    if (newCheckboxArr.indexOf(value) >= 0) {
-      newCheckboxArr.splice(newCheckboxArr.indexOf(value), 1);
-    } else {
-      newCheckboxArr.push(value);
-    }
-    setSelectedRowKeys(newCheckboxArr);
-  };
+  const handleCheckBoxClick = useCallback(
+    (value: string) => {
+      let newCheckboxArr = [...selectedRowKeys];
+      if (newCheckboxArr.indexOf(value) >= 0) {
+        newCheckboxArr.splice(newCheckboxArr.indexOf(value), 1);
+      } else {
+        newCheckboxArr.push(value);
+      }
+      setSelectedRowKeys(newCheckboxArr);
+    },
+    [selectedRowKeys]
+  );
 
-  const handleRadioClick = (value: string) => {
+  const handleRadioClick = useCallback((value: string) => {
     setSelectedRowKeys([value]);
-  };
+  }, []);
 
   const handleClick = useCallback(
     (e: any) => {
@@ -47,7 +50,7 @@ const TableBody: FC<TableBodyProps> = ({
         ? handleCheckBoxClick(value)
         : handleRadioClick(value);
     },
-    [selectedRowKeys]
+    [rowSelection, handleCheckBoxClick, handleRadioClick]
   );
 
   const renderMobileRow = (columnItem: any) => {
