@@ -20,13 +20,17 @@ const meta: Meta = {
 
 export default meta;
 
+let nameOrder = false;
+
 const columns = [
   {
     title: 'Name',
     key: 'name',
     dataIndex: 'name',
-    sorter: (a, b, order) => {
-      if (order) {
+    sorter: (a, b) => {
+      nameOrder = !nameOrder;
+
+      if (nameOrder) {
         if (a.name.split(' ')[1] > b.name.split(' ')[1]) return 1;
         else return -1;
       } else {
@@ -49,12 +53,6 @@ const columns = [
     title: 'Penalty',
     key: 'penalty',
     dataIndex: 'penalty',
-    sorter: (a, b, order) => {
-      const priceA = Number(a.penalty.replace(/[^0-9-]+/g, ''));
-      const priceB = Number(b.penalty.replace(/[^0-9-]+/g, ''));
-
-      return order ? priceA - priceB : priceB - priceA;
-    },
   },
 ];
 

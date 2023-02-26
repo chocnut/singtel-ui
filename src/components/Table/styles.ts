@@ -94,7 +94,7 @@ const TableRow = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  ${mobile =>
+  ${({ mobile }: { mobile?: boolean }) =>
     mobile &&
     css`
       display: flex;

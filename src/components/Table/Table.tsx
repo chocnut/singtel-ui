@@ -8,19 +8,15 @@ export interface Column {
   title: string;
   key: string;
   dataIndex: string;
-  sorter?: (
-    a: object | undefined,
-    b: object | undefined,
-    order: boolean
-  ) => number;
+  sorter?: (a: object, b: object) => number;
 }
 
 export interface TableProps {
-  columns?: Array<Column>;
-  dataSource?: object[];
+  columns: Array<Column>;
+  dataSource: object[];
   rowSelection?: {
     type: 'checkbox' | 'radio';
-    sorter: (a: unknown, b: unknown) => void;
+    sorter?: (a: object, b: object) => number;
   };
   theme?: ThemeProviderProps;
 }
@@ -31,18 +27,14 @@ const Table: FC<TableProps> = ({
   rowSelection,
   theme = mainTheme,
 }) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<object[]>();
   const [order, setOrder] = useState(false);
-  const [sortTitle, setSortTitle] = useState();
+  const [sortTitle, setSortTitle] = useState<string>();
 
-  const onHandleSort = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    item: Column
-  ) => {
-    e.preventDefault();
-    const sortedDataSource = dataSource?.sort((a, b) =>
-      item?.sorter(a, b, order)
-    );
+  const showSelect = typeof rowSelection?.type === 'string';
+
+  const onHandleSort = (item: Column) => {
+    const sortedDataSource = dataSource.sort(item?.sorter);
     setData(sortedDataSource);
     setOrder(!order);
     setSortTitle(item.title);
@@ -53,7 +45,7 @@ const Table: FC<TableProps> = ({
       <StyledTable>
         <TableHeader
           columns={columns}
-          rowSelection={rowSelection}
+          showSelect={showSelect}
           onHandleSort={onHandleSort}
           order={order}
           sortTitle={sortTitle}

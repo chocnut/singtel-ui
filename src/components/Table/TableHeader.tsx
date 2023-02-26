@@ -15,29 +15,24 @@ import { Column } from './Table';
 export interface TableHeaderProps {
   columns: Array<Column>;
   dataSource?: object[];
-  onHandleSort?: (
-    e: React.MouseEvent<HTMLButtonElement>,
-    sorter: () => void
-  ) => void;
-  rowSelection: {
-    type: 'checkbox' | 'radio';
-  };
+  onHandleSort: (item: Column) => void;
+  showSelect: boolean;
   order: boolean;
   sortTitle?: string;
 }
 
 const TableHeader: FC<TableHeaderProps> = ({
   columns,
-  rowSelection,
+  showSelect,
   onHandleSort,
   order,
   sortTitle,
 }) => {
   const isMobile = useIsMobile();
 
-  const renderSortButton = item => {
+  const renderSortButton = (item: Column) => {
     return (
-      <SortingButton onClick={e => onHandleSort?.(e, item)}>
+      <SortingButton onClick={() => onHandleSort(item)}>
         {sortTitle && sortTitle === item.title ? (
           <SortArrowIcon
             style={{ transform: order ? 'rotate(-180deg)' : 'none' }}
@@ -52,13 +47,13 @@ const TableHeader: FC<TableHeaderProps> = ({
   return (
     <TableHeaderContainer>
       <TableHeaderContent>
-        {rowSelection && <TableHeaderEmptyCell />}
+        {showSelect && <TableHeaderEmptyCell />}
         {isMobile ? (
           <TableHeaderItem>
             <TableHeaderItemText />
           </TableHeaderItem>
         ) : (
-          columns?.map((item: any, index: number) => {
+          columns?.map((item: Column, index: number) => {
             return (
               <TableHeaderItem key={index}>
                 <TableHeaderItemText key={index}>

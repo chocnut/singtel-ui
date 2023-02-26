@@ -22,7 +22,7 @@ const TableBody: FC<TableBodyProps> = ({
   dataSource,
   rowSelection,
 }) => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
   const isMobile = useIsMobile();
 
   const handleCheckBoxClick = (value: string) => {
@@ -40,7 +40,7 @@ const TableBody: FC<TableBodyProps> = ({
   };
 
   const handleClick = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: any) => {
       const value = e.target.value;
 
       rowSelection?.type === 'checkbox'
@@ -50,7 +50,7 @@ const TableBody: FC<TableBodyProps> = ({
     [selectedRowKeys]
   );
 
-  const renderMobileRow = (columnItem: Column) => {
+  const renderMobileRow = (columnItem: any) => {
     return (
       <>
         <TableRow mobile>
@@ -73,7 +73,7 @@ const TableBody: FC<TableBodyProps> = ({
 
   return (
     <div>
-      {dataSource?.map((columnItem, index) => {
+      {dataSource?.map((columnItem: any, index) => {
         return (
           <TableBodyContainer
             key={index}

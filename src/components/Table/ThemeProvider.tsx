@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 export interface ThemeProviderProps {
@@ -17,7 +17,11 @@ export const mainTheme: ThemeProviderProps = {
   fontFamily: 'Avenir LT Std, sans-serif, Roboto',
 };
 
-const Theme = ({ children, theme }) => (
+interface ThemeProps {
+  children: ReactNode;
+  theme?: object;
+}
+const Theme: FC<ThemeProps> = ({ children, theme }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 

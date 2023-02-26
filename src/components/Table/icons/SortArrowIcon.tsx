@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SortArrowIcon = props => (
+const SortArrowIcon = (props: any) => (
   <svg
     width={10}
     height={15}

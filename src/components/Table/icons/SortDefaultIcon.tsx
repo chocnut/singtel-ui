@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SortDefaultIcon = props => (
+const SortDefaultIcon = (props: any) => (
   <svg
     width={10}
     height={15}
