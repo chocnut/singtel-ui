@@ -9,6 +9,10 @@
 - Sorting
 - Responsive
 
+## Demo
+
+[StoryBook](https://pindiola-ui-table.netlify.app/)
+
 ## Usage
 
 ```js
@@ -79,7 +83,7 @@ const dataSource = [
 <Table columns={columns} dataSource={dataSource}>
 ```
 
-## Theme
+## Theming
 
 Customize the theme by passing a theme object props
 
