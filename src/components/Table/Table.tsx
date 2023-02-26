@@ -12,8 +12,8 @@ export interface Column {
 }
 
 export interface TableProps {
-  columns: Array<Column>;
-  dataSource: object[];
+  columns?: Array<Column>;
+  dataSource?: object[];
   rowSelection?: {
     type: 'checkbox' | 'radio';
     sorter?: (a: object, b: object) => number;
@@ -22,8 +22,8 @@ export interface TableProps {
 }
 
 const Table: FC<TableProps> = ({
-  columns,
-  dataSource,
+  columns = [],
+  dataSource = [],
   rowSelection,
   theme = mainTheme,
 }) => {
@@ -34,7 +34,7 @@ const Table: FC<TableProps> = ({
   const showSelect = typeof rowSelection?.type === 'string';
 
   const onHandleSort = (item: Column) => {
-    const sortedDataSource = dataSource.sort(item?.sorter);
+    const sortedDataSource = dataSource?.sort(item?.sorter);
     setData(sortedDataSource);
     setOrder(!order);
     setSortTitle(item.title);

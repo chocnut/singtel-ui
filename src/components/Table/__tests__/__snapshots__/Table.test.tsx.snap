@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table render the component 1`] = `
+<div
+  class="sc-bcXHqe bnLSHI"
+>
+  <div
+    class="sc-gswNZR biQHsU"
+  >
+    <div
+      class="sc-dkrFOg ENPGY"
+    >
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Name
+        </div>
+      </div>
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Mobile
+        </div>
+      </div>
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Expiry
+        </div>
+      </div>
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Penalty
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Mavis Chen
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          8899 7654
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $600
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Rodney Artichoke
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          9988 7676
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $300
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Valentino Morose
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          8900 7654
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $300
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Eric Widget
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          8900 7654
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $300
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table renders 1`] = `
+<div
+  class="sc-bcXHqe bnLSHI"
+>
+  <div
+    class="sc-gswNZR biQHsU"
+  >
+    <div
+      class="sc-dkrFOg ENPGY"
+    >
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Name
+        </div>
+      </div>
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Mobile
+        </div>
+      </div>
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Expiry
+        </div>
+      </div>
+      <div
+        class="sc-hLBbgP cczCkk"
+      >
+        <div
+          class="sc-eDvSVe jVTtnv"
+        >
+          Penalty
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Mavis Chen
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          8899 7654
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $600
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Rodney Artichoke
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          9988 7676
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $300
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Valentino Morose
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          8900 7654
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $300
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-jSUZER bdBamB"
+    >
+      <div
+        class="sc-iBYQkv eLEYUK"
+      >
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Eric Widget
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          8900 7654
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          Dec 2022
+        </div>
+        <div
+          class="sc-ftTHYK cpHedF"
+        >
+          $300
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
